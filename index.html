@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumen HTML - SMA Negeri 2 Playen</title>
+    <style>
+        /* Reset dasar */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* Styling dari user */
+        
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPP Interaktif: Pemberdayaan Komunitas Berbasis Kearifan Lokal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --dark: #2c3e50;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --radius: 8px;
+            --glass: rgba(255, 255, 255, 0.1);
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), #4a6491);
+            color: white;
+            padding: 30px 0;
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Prinsip Card */
+        .prinsip-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .prinsip-card {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            border-top: 5px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .prinsip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .prinsip-card.berkesadaran {
+            border-color: var(--secondary);
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9));
+        }
+        
+        .prinsip-card.bermakna {
+            border-color: var(--success);
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(255, 255, 255, 0.9));
+        }
+        
+        .prinsip-card.menggembirakan {
+            border-color: var(--warning);
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.1), rgba(255, 255, 255, 0.9));
+        }
+        
+        .prinsip-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Tab Navigation */
+        .tab-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .tab-nav {
+            display: flex;
+            background: linear-gradient(135deg, var(--light), #d5dce6);
+            overflow-x: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab-button {
+            padding: 15px 25px;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .tab-button:hover::before {
+            left: 100%;
+        }
+        
+        .tab-button:hover {
+            background: rgba(52, 152, 219, 0.1);
+        }
+        
+        .tab-button.active {
+            background: white;
+            color: var(--secondary);
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .tab-content {
+            padding: 30px;
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Interactive Elements */
+        .interactive-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--secondary);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .interactive-box:hover {
+            transform: translateY(-3px);
+        }
+        
+        .interactive-box h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .kearifan-local-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .kearifan-item {
+            background: linear-gradient(135deg, var(--light), #e3e8f0);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .kearifan-item:hover {
+            transform: scale(1.05);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .kearifan-item i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .kearifan-item:hover i {
+            transform: rotate(15deg) scale(1.2);
+        }
+        
+        /* Futuristic Quiz */
+        .quiz-container {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            border-radius: var(--radius);
+            padding: 30px;
+            color: white;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quiz-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: float 20s infinite linear;
+        }
+        
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quiz-progress {
+            width: 100%;
+            height: 10px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quiz-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00dbde, #fc00ff);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 5px;
+        }
+        
+        .quiz-question {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quiz-option {
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+            border-color: #00dbde;
+        }
+        
+        .quiz-option.selected {
+            background: rgba(0, 219, 222, 0.3);
+            border-color: #00dbde;
+            box-shadow: 0 0 15px rgba(0, 219, 222, 0.5);
+        }
+        
+        .quiz-option.correct {
+            background: rgba(39, 174, 96, 0.3);
+            border-color: var(--success);
+            box-shadow: 0 0 15px rgba(39, 174, 96, 0.5);
+        }
+        
+        .quiz-option.incorrect {
+            background: rgba(231, 76, 60, 0.3);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+        }
+        
+        .option-number {
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .quiz-result {
+            text-align: center;
+            padding: 30px;
+            display: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .result-score {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00dbde, #fc00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 20px 0;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--secondary), #2980b9);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #219653);
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, var(--warning), #e67e22);
+        }
+        
+        .reflection-box {
+            background: linear-gradient(135deg, rgba(255, 248, 225, 0.9), rgba(255, 255, 255, 0.9));
+            border-radius: var(--radius);
+            padding: 25px;
+            border: 2px dashed var(--warning);
+            margin: 20px 0;
+            backdrop-filter: blur(5px);
+        }
+        
+        .reflection-textarea {
+            width: 100%;
+            height: 120px;
+            padding: 15px;
+            border: 2px solid rgba(221, 221, 221, 0.5);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            resize: vertical;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            transition: border-color 0.3s ease;
+        }
+        
+        .reflection-textarea:focus {
+            outline: none;
+            border-color: var(--warning);
+            background: white;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--light);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 5px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .badge-c1 { background: rgba(227, 242, 253, 0.9); color: #1565c0; }
+        .badge-c2 { background: rgba(232, 245, 233, 0.9); color: #2e7d32; }
+        .badge-c3 { background: rgba(255, 243, 224, 0.9); color: #ef6c00; }
+        .badge-c4 { background: rgba(252, 228, 236, 0.9); color: #c2185b; }
+        .badge-c5 { background: rgba(243, 229, 245, 0.9); color: #7b1fa2; }
+        .badge-c6 { background: rgba(232, 234, 246, 0.9); color: #303f9f; }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 30px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--secondary), var(--success));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .timeline-circle {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background: linear-gradient(135deg, var(--secondary), var(--success));
+            border: 4px solid white;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-circle {
+            left: -13px;
+        }
+        
+        .material-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .material-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .material-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .material-item {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .material-item:hover {
+            border-color: var(--secondary);
+            transform: scale(1.05);
+        }
+        
+        .progress-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin: 30px 0;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .progress-bar {
+            height: 20px;
+            background: rgba(236, 240, 241, 0.5);
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--success));
+            border-radius: 10px;
+            width: 0%;
+            transition: width 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255,255,255,0.4), 
+                transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background: linear-gradient(135deg, var(--primary), #4a6491);
+            color: white;
+            border-radius: var(--radius);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--success);
+            color: white;
+            padding: 15px 25px;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .prinsip-card {
+                min-width: 100%;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-circle {
+                left: 21px;
+            }
+            
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .material-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="particle" id="particles"></div>
+    
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i> <span id="notificationText"></span>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-hands-helping"></i> RPP Interaktif: Pemberdayaan Komunitas</h1>
+            <p>Modul Sosiologi Kelas XII - Pemberdayaan Komunitas Berbasis Kearifan Lokal</p>
+            <div style="margin-top: 20px;">
+                <span class="badge badge-c1">C1: Mengingat</span>
+                <span class="badge badge-c2">C2: Memahami</span>
+                <span class="badge badge-c3">C3: Menerapkan</span>
+                <span class="badge badge-c4">C4: Menganalisis</span>
+                <span class="badge badge-c5">C5: Mengevaluasi</span>
+                <span class="badge badge-c6">C6: Mencipta</span>
+            </div>
+        </header>
+        
+        <div class="prinsip-container">
+            <div class="prinsip-card berkesadaran">
+                <h3><i class="fas fa-brain"></i> Berkesadaran</h3>
+                <p>Pembelajaran yang mendorong peserta didik untuk menyadari proses belajarnya sendiri, merefleksikan pemahaman, dan menghubungkan pengetahuan baru dengan pengalaman pribadi.</p>
+                <div style="margin-top: 15px; display: flex; align-items: center;">
+                    <i class="fas fa-lightbulb" style="color: #f39c12; margin-right: 10px;"></i>
+                    <span><strong>Fitur Interaktif:</strong> Refleksi Pribadi, Kuis Reflektif</span>
+                </div>
+            </div>
+            
+            <div class="prinsip-card bermakna">
+                <h3><i class="fas fa-heart"></i> Bermakna</h3>
+                <p>Pembelajaran yang relevan dengan kehidupan peserta didik, menghubungkan materi dengan konteks nyata, dan memberikan kesempatan untuk berkontribusi pada komunitas.</p>
+                <div style="margin-top: 15px; display: flex; align-items: center;">
+                    <i class="fas fa-link" style="color: #27ae60; margin-right: 10px;"></i>
+                    <span><strong>Fitur Interaktif:</strong> Galeri Kearifan Lokal, Peta Digital</span>
+                </div>
+            </div>
+            
+            <div class="prinsip-card menggembirakan">
+                <h3><i class="fas fa-laugh-beam"></i> Menggembirakan</h3>
+                <p>Pembelajaran yang menyenangkan, menantang secara positif, dan memberikan ruang bagi kreativitas serta ekspresi diri peserta didik.</p>
+                <div style="margin-top: 15px; display: flex; align-items: center;">
+                    <i class="fas fa-gamepad" style="color: #e74c3c; margin-right: 10px;"></i>
+                    <span><strong>Fitur Interaktif:</strong> Simulasi Interaktif, Kuis Gamifikasi</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="progress-container">
+            <h3><i class="fas fa-chart-line"></i> Progress Pembelajaran Anda</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <span>0%</span>
+                <span id="progressPercentage">0%</span>
+                <span>100%</span>
+            </div>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Selesaikan semua aktivitas interaktif untuk menyelesaikan modul ini!</p>
+        </div>
+        
+        <div class="tab-container">
+            <div class="tab-nav">
+                <button class="tab-button active" data-tab="rpp"><i class="fas fa-clipboard-list"></i> RPP Lengkap</button>
+                <button class="tab-button" data-tab="interaktif"><i class="fas fa-gamepad"></i> Aktivitas Interaktif</button>
+                <button class="tab-button" data-tab="materi"><i class="fas fa-book"></i> Materi Pembelajaran</button>
+                <button class="tab-button" data-tab="kuis"><i class="fas fa-trophy"></i> Kuis Futuristik</button>
+                <button class="tab-button" data-tab="analisis"><i class="fas fa-chart-bar"></i> Analisis & Saran</button>
+                <button class="tab-button" data-tab="asesmen"><i class="fas fa-tasks"></i> Asesmen</button>
+            </div>
+            
+            <div class="tab-content active" id="rpp-tab">
+                <h2><i class="fas fa-clipboard-check"></i> Rencana Pelaksanaan Pembelajaran (RPP)</h2>
+                
+                <div class="interactive-box">
+                    <h3><i class="fas fa-info-circle"></i> Informasi Umum</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
+                        <div style="background: linear-gradient(135deg, rgba(240, 247, 255, 0.9), rgba(255, 255, 255, 0.9)); padding: 15px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.2);">
+                            <strong><i class="fas fa-book" style="color: var(--secondary);"></i> Mata Pelajaran:</strong>
+                            <p>Sosiologi</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(240, 247, 255, 0.9), rgba(255, 255, 255, 0.9)); padding: 15px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.2);">
+                            <strong><i class="fas fa-users" style="color: var(--secondary);"></i> Kelas/Semester:</strong>
+                            <p>XII/Ganjil</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(240, 247, 255, 0.9), rgba(255, 255, 255, 0.9)); padding: 15px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.2);">
+                            <strong><i class="fas fa-clock" style="color: var(--secondary);"></i> Alokasi Waktu:</strong>
+                            <p>2 × 45 menit (1 pertemuan)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-box">
+                    <h3><i class="fas fa-bullseye"></i> Tujuan Pembelajaran</h3>
+                    <p>Setelah mengikuti proses pembelajaran, peserta didik diharapkan mampu:</p>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-content">
+                                <span class="badge badge-c2">C2</span>
+                                <h4>Memahami</h4>
+                                <p>Konsep dasar pemberdayaan komunitas dan kearifan lokal</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-content">
+                                <span class="badge badge-c3">C3</span>
+                                <h4>Menerapkan</h4>
+                                <p>Langkah-langkah identifikasi potensi kearifan lokal dalam komunitas</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-content">
+                                <span class="badge badge-c4">C4</span>
+                                <h4>Menganalisis</h4>
+                                <p>Tantangan dan peluang dalam aksi pemberdayaan komunitas berbasis kearifan lokal</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-content">
+                                <span class="badge badge-c5">C5</span>
+                                <h4>Mengevaluasi</h4>
+                                <p>Efektivitas rencana aksi pemberdayaan komunitas berbasis kearifan lokal yang telah disusun</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-content">
+                                <span class="badge badge-c6">C6</span>
+                                <h4>Mencipta</h4>
+                                <p>Rancangan aksi pemberdayaan komunitas berbasis kearifan lokal yang kontekstual dan berkelanjutan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-box">
+                    <h3><i class="fas fa-project-diagram"></i> Praktik Pedagogis</h3>
+                    <div style="background: linear-gradient(135deg, rgba(248, 249, 250, 0.9), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); margin-top: 15px; border: 1px solid rgba(0,0,0,0.1);">
+                        <h4><i class="fas fa-graduation-cap"></i> Model Pembelajaran: Problem Based Learning (PBL)</h4>
+                        <p style="margin-top: 10px;"><strong>Sintaks PBL:</strong></p>
+                        <ol style="margin-left: 20px; margin-top: 10px;">
+                            <li>Orientasi Peserta Didik pada Masalah</li>
+                            <li>Mengorganisasi Peserta Didik untuk Belajar</li>
+                            <li>Membimbing Penyelidikan Individu maupun Kelompok</li>
+                            <li>Mengembangkan dan Menyajikan Hasil Karya</li>
+                            <li>Menganalisis dan Mengevaluasi Proses Pemecahan Masalah</li>
+                        </ol>
+                        
+                        <p style="margin-top: 15px;"><strong>Metode Pembelajaran:</strong> Diskusi Kelompok Terpimpin dan Presentasi</p>
+                    </div>
+                </div>
+                
+                <div class="interactive-box">
+                    <h3><i class="fas fa-calendar-alt"></i> Kegiatan Pembelajaran</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 15px;">
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <h4><i class="fas fa-play-circle" style="color: var(--secondary);"></i> Kegiatan Awal (10 Menit)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Orientasi bermakna</li>
+                                <li>Apersepsi kontekstual</li>
+                                <li>Motivasi menggembirakan</li>
+                                <li>Persiapan asesmen awal</li>
+                            </ul>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(39, 174, 96, 0.3);">
+                            <h4><i class="fas fa-cogs" style="color: var(--success);"></i> Kegiatan Inti (75 Menit)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Memahami konsep (C2)</li>
+                                <li>Menerapkan langkah (C3)</li>
+                                <li>Menganalisis masalah (C4)</li>
+                                <li>Mengevaluasi solusi (C5)</li>
+                                <li>Mencipta rancangan (C6)</li>
+                            </ul>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(243, 156, 18, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(243, 156, 18, 0.3);">
+                            <h4><i class="fas fa-flag-checkered" style="color: var(--warning);"></i> Kegiatan Penutup (10 Menit)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Refleksi bermakna</li>
+                                <li>Apresiasi menggembirakan</li>
+                                <li>Tindak lanjut berkesadaran</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="interaktif-tab">
+                <h2><i class="fas fa-gamepad"></i> Aktivitas Interaktif</h2>
+                
+                <div class="interactive-box">
+                    <h3><i class="fas fa-map-marked-alt"></i> Eksplorasi Kearifan Lokal Indonesia</h3>
+                    <p>Klik pada gambar untuk mempelajari contoh kearifan lokal dari berbagai daerah di Indonesia:</p>
+                    
+                    <div class="kearifan-local-gallery">
+                        <div class="kearifan-item" data-info="Subak adalah sistem irigasi tradisional Bali yang telah diakui UNESCO sebagai warisan dunia. Sistem ini menggabungkan aspek teknis, sosial, dan spiritual untuk pengelolaan air yang berkelanjutan. Subak mencerminkan filosofi Tri Hita Karana (harmoni dengan Tuhan, sesama, dan alam)." data-image="subak">
+                            <i class="fas fa-water"></i>
+                            <h4>Subak (Bali)</h4>
+                            <p>Sistem Irigasi Tradisional UNESCO</p>
+                        </div>
+                        <div class="kearifan-item" data-info="Sasi adalah tradisi larangan mengambil hasil laut atau pertanian dalam periode tertentu untuk menjaga kelestarian sumber daya alam di Maluku dan Papua. Sistem ini didasarkan pada nilai-nilai konservasi dan pengelolaan berkelanjutan yang diwariskan turun-temurun." data-image="sasi">
+                            <i class="fas fa-fish"></i>
+                            <h4>Sasi (Maluku)</h4>
+                            <p>Pelestarian Sumber Daya Laut</p>
+                        </div>
+                        <div class="kearifan-item" data-info="Rumah Gadang adalah rumah tradisional Minangkabau dengan struktur arsitektur tahan gempa dan sistem matrilineal yang unik. Arsitekturnya mengadaptasi kondisi alam Sumatera Barat yang rawan gempa, menggunakan sistem pasak tanpa paku." data-image="rumahgadang">
+                            <i class="fas fa-home"></i>
+                            <h4>Rumah Gadang (Sumatera Barat)</h4>
+                            <p>Arsitektur Tahan Gempa</p>
+                        </div>
+                        <div class="kearifan-item" data-info="Pranata Mangsa adalah sistem penanggalan musim tradisional Jawa yang digunakan untuk menentukan waktu tanam dan panen berdasarkan gejala alam. Sistem ini sangat akurat dalam memprediksi pola cuaca dan telah digunakan petani Jawa selama berabad-abad." data-image="pranata">
+                            <i class="fas fa-cloud-sun"></i>
+                            <h4>Pranata Mangsa (Jawa)</h4>
+                            <p>Sistem Penanggalan Musim</p>
+                        </div>
+                    </div>
+                    
+                    <div id="kearifanDetail" style="background: linear-gradient(135deg, rgba(227, 242, 253, 0.9), rgba(255, 255, 255, 0.9)); padding: 25px; border-radius: var(--radius); margin-top: 25px; display: none; border: 1px solid rgba(52, 152, 219, 0.3);">
+                        <div style="display: flex; gap: 20px; align-items: flex-start;">
+                            <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--secondary), #2980b9); border-radius: var(--radius); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-monument" style="font-size: 3rem; color: white;"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 id="detailTitle"></h4>
+                                <p id="detailText" style="margin-top: 10px;"></p>
+                                <div style="margin-top: 15px; display: flex; gap: 10px;">
+                                    <button class="btn" id="closeDetail"><i class="fas fa-times"></i> Tutup Detail</button>
+                                    <button class="btn btn-success" id="addToReflection"><i class="fas fa-plus"></i> Tambah ke Refleksi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-box">
+                    <h3><i class="fas fa-brain"></i> Simulasi Identifikasi Masalah Komunitas</h3>
+                    <p>Pilih satu masalah komunitas di bawah ini, lalu ikuti langkah-langkah untuk merancang solusi berbasis kearifan lokal:</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; margin-top: 15px;">
+                        <div class="quiz-option problem-option" data-problem="sampah" data-desc="Sampah menumpuk di sungai dan lingkungan permukiman akibat kurangnya kesadaran masyarakat dan sistem pengelolaan yang tidak efektif.">
+                            <strong><i class="fas fa-trash"></i> Masalah Sampah</strong>
+                            <p style="font-size: 0.9rem; margin-top: 5px;">Sampah menumpuk di sungai dan lingkungan permukiman</p>
+                        </div>
+                        <div class="quiz-option problem-option" data-problem="erosi" data-desc="Pengikisan tanah akibat penebangan hutan secara liar dan kurangnya penghijauan, mengancam kesuburan tanah dan infrastruktur.">
+                            <strong><i class="fas fa-mountain"></i> Erosi Tanah</strong>
+                            <p style="font-size: 0.9rem; margin-top: 5px;">Pengikisan tanah akibat penebangan hutan</p>
+                        </div>
+                        <div class="quiz-option problem-option" data-problem="ekonomi" data-desc="Keterbatasan lapangan kerja dan penghasilan masyarakat, terutama di daerah pedesaan, menyebabkan urbanisasi dan kemiskinan struktural.">
+                            <strong><i class="fas fa-chart-line"></i> Ekonomi Lemah</strong>
+                            <p style="font-size: 0.9rem; margin-top: 5px;">Keterbatasan lapangan kerja dan penghasilan masyarakat</p>
+                        </div>
+                    </div>
+                    
+                    <div id="solutionSteps" style="display: none; margin-top: 30px;">
+                        <h4>Langkah-langkah Penyelesaian Masalah:</h4>
+                        <div style="background: linear-gradient(135deg, rgba(248, 249, 250, 0.9), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); margin-top: 15px; border: 1px solid rgba(0,0,0,0.1);">
+                            <div style="display: flex; align-items: center; margin-bottom: 15px; padding: 10px; background: rgba(52, 152, 219, 0.1); border-radius: var(--radius);">
+                                <div style="background: var(--secondary); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">1</div>
+                                <div>
+                                    <span><strong>Identifikasi Kearifan Lokal yang Relevan</strong></span>
+                                    <p style="font-size: 0.9rem; margin-top: 5px;">Temukan nilai, tradisi, atau praktik lokal yang dapat menjadi solusi</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; margin-bottom: 15px; padding: 10px; background: rgba(52, 152, 219, 0.1); border-radius: var(--radius);">
+                                <div style="background: var(--secondary); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">2</div>
+                                <div>
+                                    <span><strong>Analisis Potensi dan Tantangan</strong></span>
+                                    <p style="font-size: 0.9rem; margin-top: 5px;">Evaluasi kekuatan, kelemahan, peluang, dan ancaman</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; margin-bottom: 15px; padding: 10px; background: rgba(52, 152, 219, 0.1); border-radius: var(--radius);">
+                                <div style="background: var(--secondary); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">3</div>
+                                <div>
+                                    <span><strong>Rancang Program Pemberdayaan</strong></span>
+                                    <p style="font-size: 0.9rem; margin-top: 5px;">Buat rencana aksi yang kontekstual dan berkelanjutan</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; padding: 10px; background: rgba(52, 152, 219, 0.1); border-radius: var(--radius);">
+                                <div style="background: var(--secondary); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">4</div>
+                                <div>
+                                    <span><strong>Implementasi dan Evaluasi</strong></span>
+                                    <p style="font-size: 0.9rem; margin-top: 5px;">Laksanakan program dan pantau dampaknya secara berkala</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="reflection-box">
+                            <h4><i class="fas fa-pencil-alt"></i> Rancangan Solusi Anda</h4>
+                            <p>Berdasarkan masalah yang Anda pilih, tuliskan ide solusi berbasis kearifan lokal:</p>
+                            <textarea class="reflection-textarea" id="solutionIde" placeholder="Contoh: Untuk masalah sampah, saya akan mengusulkan program 'Bank Sampah' berbasis tradisi gotong royong dengan mengadaptasi nilai-nilai lokal seperti 'silih asah, silih asih, silih asuh'..."></textarea>
+                            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                                <button class="btn btn-success" id="saveSolution"><i class="fas fa-save"></i> Simpan Rancangan</button>
+                                <button class="btn btn-warning" id="clearSolution"><i class="fas fa-eraser"></i> Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-box">
+                    <h3><i class="fas fa-user-friends"></i> Simulasi Kolaborasi Tim</h3>
+                    <p>Pilih peran yang akan Anda ambil dalam tim pemberdayaan komunitas:</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
+                        <div class="quiz-option role-option" data-role="fasilitator" data-desc="Anda akan memimpin diskusi, memediasi konflik, dan memastikan semua anggota tim terlibat aktif dalam proses pemberdayaan." data-task="Memimpin pertemuan, memfasilitasi diskusi, menyelesaikan konflik">
+                            <i class="fas fa-handshake" style="font-size: 2.5rem; margin-bottom: 10px; color: var(--secondary);"></i>
+                            <strong>Fasilitator</strong>
+                            <p style="font-size: 0.9rem; margin-top: 5px;">Memimpin diskusi dan mediasi konflik</p>
+                        </div>
+                        <div class="quiz-option role-option" data-role="peneliti" data-desc="Anda bertanggung jawab mengumpulkan data, menganalisis masalah, dan menyediakan informasi akurat untuk pengambilan keputusan tim." data-task="Mengumpulkan data, analisis masalah, menyusun laporan">
+                            <i class="fas fa-search" style="font-size: 2.5rem; margin-bottom: 10px; color: var(--secondary);"></i>
+                            <strong>Peneliti</strong>
+                            <p style="font-size: 0.9rem; margin-top: 5px;">Mengumpulkan data dan analisis masalah</p>
+                        </div>
+                        <div class="quiz-option role-option" data-role="kreator" data-desc="Anda akan menghasilkan ide-ide inovatif, merancang solusi kreatif, dan mengembangkan strategi implementasi yang menarik." data-task="Brainstorming ide, merancang solusi, desain program">
+                            <i class="fas fa-lightbulb" style="font-size: 2.5rem; margin-bottom: 10px; color: var(--warning);"></i>
+                            <strong>Kreator</strong>
+                            <p style="font-size: 0.9rem; margin-top: 5px;">Merancang solusi inovatif</p>
+                        </div>
+                        <div class="quiz-option role-option" data-role="komunikator" data-desc="Anda akan mempresentasikan ide ke stakeholders, membuat materi komunikasi, dan membangun jaringan dengan komunitas." data-task="Presentasi, membuat materi komunikasi, membangun jaringan">
+                            <i class="fas fa-bullhorn" style="font-size: 2.5rem; margin-bottom: 10px; color: var(--accent);"></i>
+                            <strong>Komunikator</strong>
+                            <p style="font-size: 0.9rem; margin-top: 5px;">Mempresentasikan ide ke stakeholders</p>
+                        </div>
+                    </div>
+                    
+                    <div id="roleResult" style="background: linear-gradient(135deg, rgba(232, 245, 233, 0.9), rgba(255, 255, 255, 0.9)); padding: 25px; border-radius: var(--radius); margin-top: 25px; display: none; border: 1px solid rgba(39, 174, 96, 0.3);">
+                        <div style="display: flex; gap: 20px; align-items: center;">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--success), #219653); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-user-check" style="font-size: 2.5rem; color: white;"></i>
+                            </div>
+                            <div>
+                                <h4>Peran Anda dalam Tim: <span id="selectedRole" style="color: var(--success);"></span></h4>
+                                <p id="roleDescription" style="margin-top: 5px;"></p>
+                                <p style="margin-top: 10px;"><strong><i class="fas fa-tasks"></i> Tugas Utama:</strong> <span id="roleTask"></span></p>
+                                <button class="btn" id="changeRole" style="margin-top: 15px;"><i class="fas fa-sync-alt"></i> Ganti Peran</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-box">
+                    <h3><i class="fas fa-star"></i> Refleksi Pembelajaran</h3>
+                    <div class="reflection-box">
+                        <h4><i class="fas fa-comment-dots"></i> Refleksi Pribadi Anda</h4>
+                        <p>Bagaimana pembelajaran tentang pemberdayaan komunitas berbasis kearifan lokal ini memengaruhi pandangan Anda?</p>
+                        <textarea class="reflection-textarea" id="personalReflection" placeholder="Tuliskan refleksi Anda di sini... Contoh: Saya menyadari bahwa kearifan lokal bukan hanya warisan budaya tetapi juga solusi praktis untuk masalah kontemporer..."></textarea>
+                        <div style="display: flex; justify-content: space-between; margin-top: 15px;">
+                            <button class="btn" id="saveReflection"><i class="fas fa-save"></i> Simpan Refleksi</button>
+                            <button class="btn btn-warning" id="downloadReflection"><i class="fas fa-download"></i> Unduh Refleksi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="materi-tab">
+                <h2><i class="fas fa-book"></i> Materi Pembelajaran</h2>
+                
+                <div class="material-card">
+                    <h3><i class="fas fa-book-open"></i> Konsep Dasar Pemberdayaan Komunitas</h3>
+                    <p>Pemberdayaan komunitas adalah proses peningkatan kemampuan masyarakat untuk mengidentifikasi masalah, merencanakan solusi, dan mengimplementasikan program yang meningkatkan kualitas hidup mereka secara mandiri dan berkelanjutan.</p>
+                    
+                    <div style="margin-top: 20px; padding: 20px; background: linear-gradient(135deg, rgba(248, 249, 250, 0.9), rgba(255, 255, 255, 0.9)); border-radius: var(--radius); border: 1px solid rgba(0,0,0,0.1);">
+                        <h4><i class="fas fa-list-ol"></i> Prinsip-Prinsip Pemberdayaan Komunitas:</h4>
+                        <ol style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>Partisipasi Aktif:</strong> Masyarakat sebagai pelaku utama, bukan objek</li>
+                            <li><strong>Kemandirian:</strong> Meningkatkan kemampuan tanpa ketergantungan</li>
+                            <li><strong>Keberlanjutan:</strong> Program yang terus berjalan setelah intervensi selesai</li>
+                            <li><strong>Kontekstual:</strong> Menyesuaikan dengan kondisi lokal</li>
+                            <li><strong>Inklusif:</strong> Melibatkan semua kelompok masyarakat</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <h3><i class="fas fa-leaf"></i> Kearifan Lokal sebagai Modal Sosial</h3>
+                    <p>Kearifan lokal (local wisdom) adalah pengetahuan, nilai-nilai, dan praktik-praktik yang berkembang dalam suatu komunitas secara turun-temurun dan telah teruji keberlanjutannya dalam menghadapi berbagai tantangan.</p>
+                    
+                    <div class="material-grid">
+                        <div class="material-item">
+                            <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 10px;"></i>
+                            <h4>Fungsi Kearifan Lokal</h4>
+                            <ul style="text-align: left; margin-top: 10px; font-size: 0.9rem;">
+                                <li>Pelestarian lingkungan</li>
+                                <li>Pengelolaan sumber daya</li>
+                                <li>Penyelesaian konflik</li>
+                                <li>Pemeliharaan kesehatan</li>
+                            </ul>
+                        </div>
+                        <div class="material-item">
+                            <i class="fas fa-cogs" style="font-size: 2.5rem; color: var(--success); margin-bottom: 10px;"></i>
+                            <h4>Integrasi dengan Pemberdayaan</h4>
+                            <ul style="text-align: left; margin-top: 10px; font-size: 0.9rem;">
+                                <li>Meningkatkan penerimaan masyarakat</li>
+                                <li>Mengurangi resistensi perubahan</li>
+                                <li>Memperkuat identitas budaya</li>
+                                <li>Memastikan keberlanjutan</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <h3><i class="fas fa-sitemap"></i> Langkah-Langkah Pemberdayaan</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <div style="width: 50px; height: 50px; background: var(--secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px;">1</div>
+                            <h4>Identifikasi Masalah</h4>
+                            <p>Mengenali isu utama yang dihadapi komunitas melalui pengamatan, wawancara, dan diskusi partisipatif.</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <div style="width: 50px; height: 50px; background: var(--secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px;">2</div>
+                            <h4>Analisis Potensi</h4>
+                            <p>Menemukan kekuatan dan kearifan lokal yang dapat menjadi modal untuk penyelesaian masalah.</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <div style="width: 50px; height: 50px; background: var(--secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px;">3</div>
+                            <h4>Perancangan Program</h4>
+                            <p>Menyusun rencana aksi yang kontekstual, realistis, dan melibatkan semua pemangku kepentingan.</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <div style="width: 50px; height: 50px; background: var(--secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px;">4</div>
+                            <h4>Implementasi</h4>
+                            <p>Melaksanakan program dengan pendekatan partisipatif dan adaptif terhadap perubahan kondisi.</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <div style="width: 50px; height: 50px; background: var(--secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px;">5</div>
+                            <h4>Evaluasi</h4>
+                            <p>Mengukur dampak program, mengidentifikasi pembelajaran, dan merencanakan perbaikan berkelanjutan.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <h3><i class="fas fa-film"></i> Video Pembelajaran</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                        <div style="background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(231, 76, 60, 0.3); cursor: pointer;" class="video-item" data-video="subak">
+                            <div style="width: 100%; height: 150px; background: linear-gradient(135deg, var(--accent), #c0392b); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                                <i class="fas fa-play-circle" style="font-size: 3rem; color: white;"></i>
+                            </div>
+                            <h4>Video: Sistem Subak Bali</h4>
+                            <p>Belajar tentang sistem irigasi tradisional yang diakui UNESCO sebagai warisan dunia.</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(39, 174, 96, 0.3); cursor: pointer;" class="video-item" data-video="pemberdayaan">
+                            <div style="width: 100%; height: 150px; background: linear-gradient(135deg, var(--success), #219653); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                                <i class="fas fa-play-circle" style="font-size: 3rem; color: white;"></i>
+                            </div>
+                            <h4>Video: Studi Kasus Pemberdayaan</h4>
+                            <p>Contoh nyata pemberdayaan komunitas berbasis kearifan lokal di Indonesia.</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(243, 156, 18, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(243, 156, 18, 0.3); cursor: pointer;" class="video-item" data-video="wawancara">
+                            <div style="width: 100%; height: 150px; background: linear-gradient(135deg, var(--warning), #e67e22); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                                <i class="fas fa-play-circle" style="font-size: 3rem; color: white;"></i>
+                            </div>
+                            <h4>Video: Wawancara Pakar</h4>
+                            <p>Wawancara dengan tokoh masyarakat tentang peran kearifan lokal dalam pembangunan.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <h3><i class="fas fa-download"></i> Unduh Materi</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+                        <button class="btn" id="downloadPDF"><i class="fas fa-file-pdf"></i> Unduh Modul PDF</button>
+                        <button class="btn" id="downloadPPT"><i class="fas fa-file-powerpoint"></i> Unduh Presentasi</button>
+                        <button class="btn" id="downloadLembar"><i class="fas fa-file-alt"></i> Unduh Lembar Kerja</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="kuis-tab">
+                <h2><i class="fas fa-trophy"></i> Kuis Futuristik</h2>
+                
+                <div class="quiz-container" id="quizContainer">
+                    <div class="quiz-header">
+                        <h3><i class="fas fa-brain"></i> Kuis Pemberdayaan Komunitas</h3>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span>Pertanyaan: <span id="currentQuestion">1</span>/5</span>
+                            <span id="timer" style="background: rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 20px;">⏱️ 60s</span>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-progress">
+                        <div class="quiz-progress-bar" id="quizProgress"></div>
+                    </div>
+                    
+                    <div id="quizQuestions">
+                        <!-- Pertanyaan akan dimuat oleh JavaScript -->
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin-top: 30px; position: relative; z-index: 1;">
+                        <button class="btn" id="prevQuestion" disabled><i class="fas fa-arrow-left"></i> Sebelumnya</button>
+                        <button class="btn" id="nextQuestion">Selanjutnya <i class="fas fa-arrow-right"></i></button>
+                        <button class="btn btn-success" id="submitQuiz" style="display: none;"><i class="fas fa-paper-plane"></i> Kirim Jawaban</button>
+                    </div>
+                    
+                    <div class="quiz-result" id="quizResult">
+                        <h3><i class="fas fa-award"></i> Hasil Kuis Anda</h3>
+                        <div class="result-score" id="finalScore">0/100</div>
+                        <p id="resultMessage"></p>
+                        <div style="margin: 20px 0;">
+                            <button class="btn" id="retryQuiz"><i class="fas fa-redo"></i> Coba Lagi</button>
+                            <button class="btn btn-success" id="shareResult"><i class="fas fa-share"></i> Bagikan Hasil</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="analisis-tab">
+                <h2><i class="fas fa-chart-bar"></i> Analisis & Saran Penguatan</h2>
+                
+                <div class="interactive-box">
+                    <h3><i class="fas fa-star"></i> Analisis Keunggulan RPP</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <h4><i class="fas fa-link" style="color: var(--secondary);"></i> Alignment yang Kuat</h4>
+                            <p>Tujuan pembelajaran (C2–C6) selaras dengan aktivitas, asesmen, dan prinsip pedagogis.</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <h4><i class="fas fa-map-marker-alt" style="color: var(--secondary);"></i> Kontekstual dan Relevan</h4>
+                            <p>Materi dikaitkan langsung dengan kehidupan peserta didik dan isu lokal.</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <h4><i class="fas fa-user-graduate" style="color: var(--secondary);"></i> Berpusat pada Peserta Didik</h4>
+                            <p>Menggunakan PBL dan diferensiasi berdasarkan minat/latar belakang.</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <h4><i class="fas fa-project-diagram" style="color: var(--secondary);"></i> Integratif</h4>
+                            <p>Mengaitkan lintas disiplin ilmu dan melibatkan kemitraan dengan komunitas.</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <h4><i class="fas fa-clipboard-check" style="color: var(--secondary);"></i> Assesmen Autentik</h4>
+                            <p>Menggunakan rubrik observasi dan penilaian proses yang mengukur keterampilan abad ke-21.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-box">
+                    <h3><i class="fas fa-lightbulb"></i> Saran Penguatan Pembelajaran</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-content">
+                                <h4><i class="fas fa-images" style="color: var(--warning);"></i> Pameran Kearifan Lokal Mini</h4>
+                                <p><strong>Saran:</strong> Minta peserta didik membawa benda/foto yang merepresentasikan kearifan lokal dari lingkungannya untuk dipamerkan di kelas.</p>
+                                <p><strong>Manfaat:</strong> Menyentuh pengalaman personal dan membuat pembelajaran lebih hidup.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-content">
+                                <h4><i class="fas fa-video" style="color: var(--warning);"></i> Guest Star Virtual</h4>
+                                <p><strong>Saran:</strong> Undang tetua/adat/penggerak komunitas lokal via video call untuk menyapa dan menekankan pentingnya kearifan lokal.</p>
+                                <p><strong>Manfaat:</strong> Suara langsung dari pelaku sangat powerful dan meningkatkan kredibilitas materi.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-content">
+                                <h4><i class="fas fa-expand-alt" style="color: var(--warning);"></i> Ekspedisi Virtual</h4>
+                                <p><strong>Saran:</strong> Kelompok melakukan wawancara daring mikro dengan narasumber kunci di komunitas studi kasus.</p>
+                                <p><strong>Manfaat:</strong> Melatih keterampilan wawancara dan mendapatkan data primer yang otentik.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-content">
+                                <h4><i class="fas fa-bullhorn" style="color: var(--warning);"></i> Prototipe Aksi Nyata</h4>
+                                <p><strong>Saran:</strong> Buat iklan layanan masyarakat (PSA) 60 detik atau poster kampanye digital menggunakan Canva.</p>
+                                <p><strong>Manfaat:</strong> Menghasilkan produk otentik yang bisa diunggah ke media sosial kelas/sekolah.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-content">
+                                <h4><i class="fas fa-theater-masks" style="color: var(--warning);"></i> Role-Play Konflik dan Solusi</h4>
+                                <p><strong>Saran:</strong> Adakan sesi role-play dengan peserta berperan sebagai "pemerintah desa", "kelompok muda", dan "tetua adat".</p>
+                                <p><strong>Manfaat:</strong> Melatih empati, negosiasi, dan pemahaman sudut pandang yang berbeda.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-box">
+                    <h3><i class="fas fa-tasks"></i> Rekomendasi Implementasi</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                        <div style="background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(39, 174, 96, 0.3);">
+                            <h4><i class="fas fa-users" style="color: var(--success);"></i> Program Mentor Virtual</h4>
+                            <p>Jalin kemitraan untuk program pendampingan singkat antara kelompok peserta didik dengan pemuda/penggiat LSM lokal.</p>
+                            <button class="btn" style="margin-top: 15px; width: 100%;" id="implementMentor">Implementasikan</button>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(39, 174, 96, 0.3);">
+                            <h4><i class="fas fa-palette" style="color: var(--success);"></i> Kolaborasi Lintas Mata Pelajaran</h4>
+                            <p>Buat kolaborasi dengan kelas Seni/Bahasa Daerah untuk mengembangkan kampanye pemberdayaan yang lebih komprehensif.</p>
+                            <button class="btn" style="margin-top: 15px; width: 100%;" id="implementKolaborasi">Implementasikan</button>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(39, 174, 96, 0.3);">
+                            <h4><i class="fas fa-chart-pie" style="color: var(--success);"></i> Assessment Berdiferensiasi</h4>
+                            <p>Berikan opsi produk akhir yang beragam (video, poster, presentasi, prototype) sesuai minat dan kemampuan peserta didik.</p>
+                            <button class="btn" style="margin-top: 15px; width: 100%;" id="implementAssessment">Implementasikan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="asesmen-tab">
+                <h2><i class="fas fa-tasks"></i> Asesmen Pembelajaran</h2>
+                
+                <div class="interactive-box">
+                    <h3><i class="fas fa-clipboard-list"></i> Rubrik Penilaian Diskusi Kelompok</h3>
+                    <div style="overflow-x: auto; margin-top: 20px;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: linear-gradient(135deg, var(--secondary), #2980b9); color: white;">
+                                    <th style="padding: 15px; text-align: left;">Kriteria Penilaian</th>
+                                    <th style="padding: 15px; text-align: center;">Baik (Skor 3)</th>
+                                    <th style="padding: 15px; text-align: center;">Cukup (Skor 2)</th>
+                                    <th style="padding: 15px; text-align: center;">Kurang (Skor 1)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background: rgba(255,255,255,0.8);">
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee;"><strong>Partisipasi</strong></td>
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee; text-align: center;">Aktif memberikan ide, menanggapi, dan memimpin diskusi</td>
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee; text-align: center;">Sesekali memberikan ide atau menanggapi, namun cenderung pasif</td>
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee; text-align: center;">Diam atau tidak berkontribusi sama sekali dalam diskusi</td>
+                                </tr>
+                                <tr style="background: rgba(248,249,250,0.8);">
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee;"><strong>Kolaborasi</strong></td>
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee; text-align: center;">Mampu bekerja sama dengan efektif, menghargai semua pendapat, dan membagi tugas secara adil</td>
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee; text-align: center;">Berusaha bekerja sama, namun kurang menghargai perbedaan pendapat atau pembagian tugas kurang merata</td>
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee; text-align: center;">Bekerja sendiri-sendiri atau mendominasi/mengabaikan anggota lain</td>
+                                </tr>
+                                <tr style="background: rgba(255,255,255,0.8);">
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee;"><strong>Penalaran Kritis</strong></td>
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee; text-align: center;">Mampu mengaitkan konsep dengan masalah, memberikan argumen yang logis dan solutif, serta mempertanyakan asumsi</td>
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee; text-align: center;">Argumen yang diberikan kurang mendalam atau hanya mengikuti pendapat umum tanpa analisis kritis</td>
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee; text-align: center;">Sulit untuk memberikan pendapat atau argumen yang relevan dengan topik</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div style="margin-top: 30px; background: linear-gradient(135deg, rgba(243, 156, 18, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(243, 156, 18, 0.3);">
+                        <h4><i class="fas fa-calculator"></i> Simulator Penilaian</h4>
+                        <p>Masukkan skor untuk menilai kinerja diskusi kelompok:</p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 15px;">
+                            <div>
+                                <label>Partisipasi:</label>
+                                <select id="scorePartisipasi" style="width: 100%; padding: 10px; margin-top: 5px; border-radius: var(--radius); border: 1px solid #ddd;">
+                                    <option value="1">Kurang (1)</option>
+                                    <option value="2">Cukup (2)</option>
+                                    <option value="3">Baik (3)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Kolaborasi:</label>
+                                <select id="scoreKolaborasi" style="width: 100%; padding: 10px; margin-top: 5px; border-radius: var(--radius); border: 1px solid #ddd;">
+                                    <option value="1">Kurang (1)</option>
+                                    <option value="2">Cukup (2)</option>
+                                    <option value="3">Baik (3)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Penalaran Kritis:</label>
+                                <select id="scorePenalaran" style="width: 100%; padding: 10px; margin-top: 5px; border-radius: var(--radius); border: 1px solid #ddd;">
+                                    <option value="1">Kurang (1)</option>
+                                    <option value="2">Cukup (2)</option>
+                                    <option value="3">Baik (3)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-success" id="calculateScore"><i class="fas fa-calculator"></i> Hitung Total Skor</button>
+                            <div id="scoreResult" style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.8); border-radius: var(--radius); display: none;">
+                                <h4>Hasil Penilaian: <span id="totalScore">0</span>/9</h4>
+                                <p id="scoreFeedback"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-box">
+                    <h3><i class="fas fa-chart-line"></i> Portofolio Pembelajaran</h3>
+                    <p>Lacak perkembangan dan pencapaian pembelajaran Anda:</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <h4>Kuis</h4>
+                                <span id="quizPortfolio" style="background: var(--secondary); color: white; padding: 5px 10px; border-radius: 20px;">0%</span>
+                            </div>
+                            <p style="font-size: 0.9rem; margin-top: 10px;">Tingkat penguasaan konsep melalui kuis interaktif</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <h4>Refleksi</h4>
+                                <span id="reflectionPortfolio" style="background: var(--success); color: white; padding: 5px 10px; border-radius: 20px;">0%</span>
+                            </div>
+                            <p style="font-size: 0.9rem; margin-top: 10px;">Kedalaman pemahaman dan internalisasi nilai</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9)); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(52, 152, 219, 0.3);">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <h4>Partisipasi</h4>
+                                <span id="participationPortfolio" style="background: var(--warning); color: white; padding: 5px 10px; border-radius: 20px;">0%</span>
+                            </div>
+                            <p style="font-size: 0.9rem; margin-top: 10px;">Keterlibatan dalam aktivitas interaktif</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <button class="btn" id="downloadPortfolio"><i class="fas fa-download"></i> Unduh Portofolio</button>
+                        <button class="btn btn-success" id="resetPortfolio"><i class="fas fa-redo"></i> Reset Portofolio</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <h3><i class="fas fa-graduation-cap"></i> Modul Pembelajaran Interaktif</h3>
+            <p>RPP Pemberdayaan Komunitas Berbasis Kearifan Lokal - Mata Pelajaran Sosiologi Kelas XII</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">Menerapkan prinsip Berkesadaran, Bermakna, dan Menggembirakan dalam pembelajaran</p>
+            <div style="margin-top: 20px; display: flex; justify-content: center; gap: 20px;">
+                <button class="btn" id="printModule"><i class="fas fa-print"></i> Cetak Modul</button>
+                <button class="btn btn-success" id="finishModule"><i class="fas fa-flag-checkered"></i> Selesaikan Modul</button>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Data untuk modul
+        const moduleData = {
+            progress: 0,
+            quizScore: 0,
+            reflectionSaved: false,
+            solutionSaved: false,
+            roleSelected: false,
+            kearifanExplored: 0,
+            portfolio: {
+                quiz: 0,
+                reflection: 0,
+                participation: 0
+            }
+        };
+
+        // Data kuis
+        const quizQuestions = [
+            {
+                question: "Apa yang dimaksud dengan kearifan lokal dalam konteks pemberdayaan komunitas?",
+                options: [
+                    "Pengetahuan modern yang diterapkan di desa",
+                    "Nilai-nilai budaya global yang diadopsi lokal",
+                    "Pengetahuan dan strategi lokal yang diwariskan turun-temurun",
+                    "Kebijakan pemerintah untuk daerah terpencil"
+                ],
+                correct: 2,
+                explanation: "Kearifan lokal adalah pengetahuan, nilai-nilai, dan strategi lokal yang diwariskan dari generasi ke generasi dan telah teruji dalam mengatasi masalah setempat."
+            },
+            {
+                question: "Manakah yang BUKAN prinsip utama pemberdayaan komunitas?",
+                options: [
+                    "Partisipasi aktif masyarakat",
+                    "Ketergantungan pada bantuan luar",
+                    "Keberlanjutan program",
+                    "Kontekstual dengan kondisi lokal"
+                ],
+                correct: 1,
+                explanation: "Pemberdayaan komunitas justru bertujuan untuk mengurangi ketergantungan pada bantuan luar dan meningkatkan kemandirian masyarakat."
+            },
+            {
+                question: "Sistem Subak di Bali merupakan contoh kearifan lokal dalam bidang...",
+                options: [
+                    "Pengelolaan sampah",
+                    "Sistem irigasi pertanian",
+                    "Pengobatan tradisional",
+                    "Arsitektur rumah"
+                ],
+                correct: 1,
+                explanation: "Subak adalah sistem irigasi tradisional Bali yang mengatur pembagian air untuk sawah secara adil dan berkelanjutan."
+            },
+            {
+                question: "Tahap pertama dalam proses pemberdayaan komunitas adalah...",
+                options: [
+                    "Implementasi program",
+                    "Identifikasi masalah",
+                    "Evaluasi hasil",
+                    "Penyusunan anggaran"
+                ],
+                correct: 1,
+                explanation: "Identifikasi masalah adalah langkah awal yang kritis untuk memahami akar permasalahan yang dihadapi komunitas."
+            },
+            {
+                question: "Mengapa kearifan lokal penting dalam pemberdayaan komunitas?",
+                options: [
+                    "Karena lebih murah daripada teknologi modern",
+                    "Karena sudah dikenal dan dipercaya masyarakat",
+                    "Karena diwajibkan oleh pemerintah",
+                    "Karena lebih mudah dipelajari"
+                ],
+                correct: 1,
+                explanation: "Kearifan lokal sudah mengakar dan dipercaya masyarakat, sehingga program pemberdayaan akan lebih mudah diterima dan berkelanjutan."
+            }
+        ];
+
+        // Inisialisasi
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    button.classList.add('active');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                    
+                    // Update progress jika berpindah tab
+                    updateProgress();
+                });
+            });
+            
+            // Kearifan lokal gallery
+            const kearifanItems = document.querySelectorAll('.kearifan-item');
+            const kearifanDetail = document.getElementById('kearifanDetail');
+            const detailTitle = document.getElementById('detailTitle');
+            const detailText = document.getElementById('detailText');
+            const closeDetail = document.getElementById('closeDetail');
+            const addToReflection = document.getElementById('addToReflection');
+            
+            kearifanItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const title = item.querySelector('h4').textContent;
+                    const info = item.getAttribute('data-info');
+                    
+                    detailTitle.textContent = title;
+                    detailText.textContent = info;
+                    kearifanDetail.style.display = 'block';
+                    
+                    // Update progress
+                    if (moduleData.kearifanExplored < 4) {
+                        moduleData.kearifanExplored++;
+                        updateProgress();
+                    }
+                });
+            });
+            
+            closeDetail.addEventListener('click', () => {
+                kearifanDetail.style.display = 'none';
+            });
+            
+            addToReflection.addEventListener('click', () => {
+                const reflectionTextarea = document.getElementById('personalReflection');
+                const currentText = reflectionTextarea.value;
+                const newText = `Saya belajar tentang ${detailTitle.textContent}: ${detailText.textContent}\n\n${currentText}`;
+                reflectionTextarea.value = newText;
+                showNotification('Kearifan lokal telah ditambahkan ke refleksi Anda!');
+            });
+            
+            // Problem selection
+            const problemOptions = document.querySelectorAll('.problem-option');
+            const solutionSteps = document.getElementById('solutionSteps');
+            
+            problemOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    problemOptions.forEach(opt => opt.classList.remove('selected'));
+                    option.classList.add('selected');
+                    solutionSteps.style.display = 'block';
+                    
+                    // Update progress
+                    if (!moduleData.solutionSaved) {
+                        updateProgress();
+                    }
+                });
+            });
+            
+            // Save solution
+            const saveSolution = document.getElementById('saveSolution');
+            const clearSolution = document.getElementById('clearSolution');
+            const solutionIde = document.getElementById('solutionIde');
+            
+            saveSolution.addEventListener('click', () => {
+                if (solutionIde.value.trim() === '') {
+                    showNotification('Silakan tuliskan ide solusi Anda terlebih dahulu!', 'warning');
+                    return;
+                }
+                
+                moduleData.solutionSaved = true;
+                moduleData.portfolio.participation += 30;
+                updatePortfolio();
+                updateProgress();
+                showNotification('Rancangan solusi Anda telah disimpan!');
+            });
+            
+            clearSolution.addEventListener('click', () => {
+                solutionIde.value = '';
+            });
+            
+            // Role selection
+            const roleOptions = document.querySelectorAll('.role-option');
+            const roleResult = document.getElementById('roleResult');
+            const selectedRole = document.getElementById('selectedRole');
+            const roleDescription = document.getElementById('roleDescription');
+            const roleTask = document.getElementById('roleTask');
+            const changeRole = document.getElementById('changeRole');
+            
+            roleOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    roleOptions.forEach(opt => opt.classList.remove('selected'));
+                    option.classList.add('selected');
+                    
+                    const role = option.getAttribute('data-role');
+                    const desc = option.getAttribute('data-desc');
+                    const task = option.getAttribute('data-task');
+                    
+                    selectedRole.textContent = option.querySelector('strong').textContent;
+                    roleDescription.textContent = desc;
+                    roleTask.textContent = task;
+                    
+                    roleResult.style.display = 'block';
+                    moduleData.roleSelected = true;
+                    moduleData.portfolio.participation += 20;
+                    updatePortfolio();
+                    updateProgress();
+                });
+            });
+            
+            changeRole.addEventListener('click', () => {
+                roleResult.style.display = 'none';
+                roleOptions.forEach(opt => opt.classList.remove('selected'));
+            });
+            
+            // Reflection
+            const saveReflection = document.getElementById('saveReflection');
+            const downloadReflection = document.getElementById('downloadReflection');
+            const personalReflection = document.getElementById('personalReflection');
+            
+            saveReflection.addEventListener('click', () => {
+                if (personalReflection.value.trim() === '') {
+                    showNotification('Silakan tuliskan refleksi Anda terlebih dahulu!', 'warning');
+                    return;
+                }
+                
+                moduleData.reflectionSaved = true;
+                moduleData.portfolio.reflection = 100;
+                updatePortfolio();
+                updateProgress();
+                showNotification('Refleksi Anda telah disimpan!');
+            });
+            
+            downloadReflection.addEventListener('click', () => {
+                if (personalReflection.value.trim() === '') {
+                    showNotification('Tidak ada refleksi untuk diunduh!', 'warning');
+                    return;
+                }
+                
+                const blob = new Blob([personalReflection.value], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'refleksi-pemberdayaan.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showNotification('Refleksi telah diunduh!');
+            });
+            
+            // Kuis functionality
+            initializeQuiz();
+            
+            // Material download
+            const downloadPDF = document.getElementById('downloadPDF');
+            const downloadPPT = document.getElementById('downloadPPT');
+            const downloadLembar = document.getElementById('downloadLembar');
+            
+            downloadPDF.addEventListener('click', () => {
+                showNotification('Modul PDF sedang diunduh...');
+                // Simulasi download
+                setTimeout(() => {
+                    showNotification('Modul PDF berhasil diunduh!');
+                }, 1500);
+            });
+            
+            downloadPPT.addEventListener('click', () => {
+                showNotification('Presentasi PowerPoint sedang diunduh...');
+                setTimeout(() => {
+                    showNotification('Presentasi berhasil diunduh!');
+                }, 1500);
+            });
+            
+            downloadLembar.addEventListener('click', () => {
+                showNotification('Lembar kerja sedang diunduh...');
+                setTimeout(() => {
+                    showNotification('Lembar kerja berhasil diunduh!');
+                }, 1500);
+            });
+            
+            // Video items
+            const videoItems = document.querySelectorAll('.video-item');
+            videoItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const videoType = item.getAttribute('data-video');
+                    showNotification(`Memutar video tentang ${videoType === 'subak' ? 'Sistem Subak Bali' : videoType === 'pemberdayaan' ? 'Studi Kasus Pemberdayaan' : 'Wawancara Pakar'}`);
+                });
+            });
+            
+            // Implementasi saran
+            const implementButtons = ['implementMentor', 'implementKolaborasi', 'implementAssessment'];
+            implementButtons.forEach(buttonId => {
+                document.getElementById(buttonId).addEventListener('click', () => {
+                    showNotification('Rekomendasi telah ditambahkan ke rencana implementasi!');
+                });
+            });
+            
+            // Assessment score calculator
+            const calculateScore = document.getElementById('calculateScore');
+            const scoreResult = document.getElementById('scoreResult');
+            const totalScore = document.getElementById('totalScore');
+            const scoreFeedback = document.getElementById('scoreFeedback');
+            
+            calculateScore.addEventListener('click', () => {
+                const partisipasi = parseInt(document.getElementById('scorePartisipasi').value);
+                const kolaborasi = parseInt(document.getElementById('scoreKolaborasi').value);
+                const penalaran = parseInt(document.getElementById('scorePenalaran').value);
+                
+                const total = partisipasi + kolaborasi + penalaran;
+                totalScore.textContent = total;
+                
+                let feedback = '';
+                if (total >= 8) {
+                    feedback = 'Sangat baik! Kelompok menunjukkan partisipasi aktif, kolaborasi efektif, dan penalaran kritis yang kuat.';
+                } else if (total >= 6) {
+                    feedback = 'Cukup baik. Ada beberapa area yang dapat ditingkatkan, terutama dalam kolaborasi dan kedalaman analisis.';
+                } else {
+                    feedback = 'Perlu peningkatan. Disarankan untuk melatih keterampilan diskusi dan kerja sama tim lebih intensif.';
+                }
+                
+                scoreFeedback.textContent = feedback;
+                scoreResult.style.display = 'block';
+            });
+            
+            // Portfolio
+            const downloadPortfolio = document.getElementById('downloadPortfolio');
+            const resetPortfolio = document.getElementById('resetPortfolio');
+            
+            downloadPortfolio.addEventListener('click', () => {
+                const portfolioData = `
+PORTOFOLIO PEMBELAJARAN
+=======================
+Nama: Peserta Didik
+Modul: Pemberdayaan Komunitas Berbasis Kearifan Lokal
+
+HASIL:
+- Kuis: ${moduleData.portfolio.quiz}%
+- Refleksi: ${moduleData.portfolio.reflection}%
+- Partisipasi: ${moduleData.portfolio.participation}%
+- Total Progress: ${moduleData.progress}%
+
+TANGGAL: ${new Date().toLocaleDateString('id-ID')}
+                `;
+                
+                const blob = new Blob([portfolioData], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'portofolio-pemberdayaan.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showNotification('Portofolio telah diunduh!');
+            });
+            
+            resetPortfolio.addEventListener('click', () => {
+                if (confirm('Apakah Anda yakin ingin mereset portofolio? Semua data akan hilang.')) {
+                    moduleData.portfolio = { quiz: 0, reflection: 0, participation: 0 };
+                    moduleData.progress = 0;
+                    updatePortfolio();
+                    updateProgress();
+                    showNotification('Portofolio telah direset!');
+                }
+            });
+            
+            // Finish module
+            const finishModule = document.getElementById('finishModule');
+            finishModule.addEventListener('click', () => {
+                if (moduleData.progress < 80) {
+                    showNotification('Anda belum menyelesaikan minimal 80% aktivitas modul!', 'warning');
+                    return;
+                }
+                
+                showNotification('Selamat! Anda telah menyelesaikan modul pembelajaran ini.', 'success');
+            });
+            
+            // Print module
+            const printModule = document.getElementById('printModule');
+            printModule.addEventListener('click', () => {
+                window.print();
+            });
+            
+            // Initialize particles
+            createParticles();
+        });
+        
+        // Fungsi untuk menginisialisasi kuis
+        function initializeQuiz() {
+            const quizContainer = document.getElementById('quizQuestions');
+            const quizProgress = document.getElementById('quizProgress');
+            const currentQuestion = document.getElementById('currentQuestion');
+            const prevButton = document.getElementById('prevQuestion');
+            const nextButton = document.getElementById('nextQuestion');
+            const submitButton = document.getElementById('submitQuiz');
+            const quizResult = document.getElementById('quizResult');
+            const finalScore = document.getElementById('finalScore');
+            const resultMessage = document.getElementById('resultMessage');
+            const retryButton = document.getElementById('retryQuiz');
+            const shareButton = document.getElementById('shareResult');
+            const timerElement = document.getElementById('timer');
+            
+            let currentQuizIndex = 0;
+            let userAnswers = new Array(quizQuestions.length).fill(null);
+            let timeLeft = 300; // 5 menit dalam detik
+            let timerInterval;
+            
+            // Tampilkan pertanyaan pertama
+            displayQuestion(currentQuizIndex);
+            startTimer();
+            
+            // Fungsi untuk menampilkan pertanyaan
+            function displayQuestion(index) {
+                const question = quizQuestions[index];
+                currentQuestion.textContent = index + 1;
+                
+                let optionsHTML = '';
+                question.options.forEach((option, i) => {
+                    const isSelected = userAnswers[index] === i;
+                    const isCorrect = i === question.correct;
+                    let optionClass = 'quiz-option';
+                    if (isSelected) optionClass += ' selected';
+                    
+                    optionsHTML += `
+                        <div class="${optionClass}" data-index="${i}">
+                            <div class="option-number">${String.fromCharCode(65 + i)}</div>
+                            <div>${option}</div>
+                        </div>
+                    `;
+                });
+                
+                quizContainer.innerHTML = `
+                    <div class="quiz-question">${question.question}</div>
+                    <div class="quiz-options">${optionsHTML}</div>
+                `;
+                
+                // Update progress bar
+                quizProgress.style.width = `${((index + 1) / quizQuestions.length) * 100}%`;
+                
+                // Update button states
+                prevButton.disabled = index === 0;
+                nextButton.disabled = index === quizQuestions.length - 1;
+                submitButton.style.display = index === quizQuestions.length - 1 ? 'inline-flex' : 'none';
+                
+                // Add event listeners to options
+                const optionElements = quizContainer.querySelectorAll('.quiz-option');
+                optionElements.forEach(option => {
+                    option.addEventListener('click', () => {
+                        const selectedIndex = parseInt(option.getAttribute('data-index'));
+                        userAnswers[currentQuizIndex] = selectedIndex;
+                        
+                        // Update UI
+                        optionElements.forEach(opt => opt.classList.remove('selected'));
+                        option.classList.add('selected');
+                    });
+                });
+            }
+            
+            // Timer
+            function startTimer() {
+                clearInterval(timerInterval);
+                timerInterval = setInterval(() => {
+                    timeLeft--;
+                    const minutes = Math.floor(timeLeft / 60);
+                    const seconds = timeLeft % 60;
+                    timerElement.textContent = `⏱️ ${minutes}:${seconds.toString().padStart(2, '0')}`;
+                    
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval);
+                        submitQuiz();
+                    }
+                }, 1000);
+            }
+            
+            // Navigasi pertanyaan
+            prevButton.addEventListener('click', () => {
+                if (currentQuizIndex > 0) {
+                    currentQuizIndex--;
+                    displayQuestion(currentQuizIndex);
+                }
+            });
+            
+            nextButton.addEventListener('click', () => {
+                if (currentQuizIndex < quizQuestions.length - 1) {
+                    currentQuizIndex++;
+                    displayQuestion(currentQuizIndex);
+                }
+            });
+            
+            // Submit kuis
+            submitButton.addEventListener('click', submitQuiz);
+            
+            function submitQuiz() {
+                clearInterval(timerInterval);
+                
+                // Hitung skor
+                let score = 0;
+                let resultsHTML = '';
+                
+                quizQuestions.forEach((question, index) => {
+                    const userAnswer = userAnswers[index];
+                    const isCorrect = userAnswer === question.correct;
+                    
+                    if (isCorrect) score += 20;
+                    
+                    resultsHTML += `
+                        <div style="margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: var(--radius);">
+                            <div style="font-weight: bold; margin-bottom: 5px;">Pertanyaan ${index + 1}: ${question.question}</div>
+                            <div style="margin-bottom: 5px;">Jawaban Anda: <span style="color: ${isCorrect ? '#00ff00' : '#ff4444'}">${userAnswer !== null ? question.options[userAnswer] : 'Tidak dijawab'}</span></div>
+                            <div style="margin-bottom: 5px;">Jawaban Benar: <span style="color: #00ff00">${question.options[question.correct]}</span></div>
+                            <div style="font-size: 0.9rem; opacity: 0.9;">${question.explanation}</div>
+                        </div>
+                    `;
+                });
+                
+                // Tampilkan hasil
+                quizContainer.style.display = 'none';
+                prevButton.style.display = 'none';
+                nextButton.style.display = 'none';
+                submitButton.style.display = 'none';
+                quizResult.style.display = 'block';
+                
+                finalScore.textContent = `${score}/100`;
+                
+                let message = '';
+                if (score >= 80) {
+                    message = 'Luar biasa! Anda menguasai materi pemberdayaan komunitas dengan sangat baik.';
+                } else if (score >= 60) {
+                    message = 'Baik! Anda memahami konsep dasar, tetapi perlu memperdalam beberapa aspek.';
+                } else {
+                    message = 'Anda perlu mempelajari kembali materi pemberdayaan komunitas dan kearifan lokal.';
+                }
+                
+                resultMessage.innerHTML = `<p>${message}</p>${resultsHTML}`;
+                
+                // Update progress
+                moduleData.quizScore = score;
+                moduleData.portfolio.quiz = score;
+                updatePortfolio();
+                updateProgress();
+                
+                // Update progress bar menjadi 100%
+                quizProgress.style.width = '100%';
+            }
+            
+            // Retry kuis
+            retryButton.addEventListener('click', () => {
+                currentQuizIndex = 0;
+                userAnswers = new Array(quizQuestions.length).fill(null);
+                timeLeft = 300;
+                
+                quizContainer.style.display = 'block';
+                quizResult.style.display = 'none';
+                prevButton.style.display = 'inline-flex';
+                nextButton.style.display = 'inline-flex';
+                
+                displayQuestion(currentQuizIndex);
+                startTimer();
+            });
+            
+            // Share result
+            shareButton.addEventListener('click', () => {
+                const shareText = `Saya baru saja menyelesaikan Kuis Pemberdayaan Komunitas dengan skor ${moduleData.quizScore}/100!`;
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Hasil Kuis Pemberdayaan Komunitas',
+                        text: shareText,
+                        url: window.location.href
+                    });
+                } else {
+                    navigator.clipboard.writeText(shareText).then(() => {
+                        showNotification('Hasil kuis telah disalin ke clipboard!');
+                    });
+                }
+            });
+        }
+        
+        // Fungsi untuk update progress
+        function updateProgress() {
+            let progress = 0;
+            
+            // Hitung progress berdasarkan aktivitas yang diselesaikan
+            if (moduleData.kearifanExplored > 0) progress += 10;
+            if (moduleData.solutionSaved) progress += 20;
+            if (moduleData.roleSelected) progress += 15;
+            if (moduleData.reflectionSaved) progress += 20;
+            if (moduleData.quizScore > 0) progress += 20;
+            
+            // Progress minimum dari portfolio
+            const portfolioProgress = Math.round((moduleData.portfolio.quiz + moduleData.portfolio.reflection + moduleData.portfolio.participation) / 3);
+            progress = Math.max(progress, portfolioProgress);
+            
+            moduleData.progress = Math.min(progress, 100);
+            
+            // Update UI
+            const progressFill = document.getElementById('progressFill');
+            const progressPercentage = document.getElementById('progressPercentage');
+            
+            progressFill.style.width = `${moduleData.progress}%`;
+            progressPercentage.textContent = `${moduleData.progress}%`;
+        }
+        
+        // Fungsi untuk update portfolio
+        function updatePortfolio() {
+            document.getElementById('quizPortfolio').textContent = `${moduleData.portfolio.quiz}%`;
+            document.getElementById('reflectionPortfolio').textContent = `${moduleData.portfolio.reflection}%`;
+            document.getElementById('participationPortfolio').textContent = `${moduleData.portfolio.participation}%`;
+        }
+        
+        // Fungsi untuk menampilkan notifikasi
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = message;
+            
+            // Set warna berdasarkan tipe
+            if (type === 'warning') {
+                notification.style.background = 'linear-gradient(135deg, var(--warning), #e67e22)';
+            } else if (type === 'error') {
+                notification.style.background = 'linear-gradient(135deg, var(--accent), #c0392b)';
+            } else {
+                notification.style.background = 'linear-gradient(135deg, var(--success), #219653)';
+            }
+            
+            notification.classList.add('show');
+            
+            // Sembunyikan setelah 3 detik
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Fungsi untuk membuat partikel
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Posisi acak
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                
+                // Ukuran acak
+                const size = Math.random() * 5 + 2;
+                
+                // Warna acak
+                const colors = ['#3498db', '#2ecc71', '#e74c3c', '#f39c12', '#9b59b6'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Animasi acak
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                
+                particle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    background: ${color};
+                    border-radius: 50%;
+                    left: ${x}vw;
+                    top: ${y}vh;
+                    opacity: ${Math.random() * 0.5 + 0.2};
+                    animation: floatParticle ${duration}s linear ${delay}s infinite;
+                `;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Tambahkan style untuk animasi partikel
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes floatParticle {
+                    0% {
+                        transform: translate(0, 0) rotate(0deg);
+                        opacity: 0.2;
+                    }
+                    25% {
+                        transform: translate(${Math.random() * 50 - 25}px, ${Math.random() * 50 - 25}px) rotate(90deg);
+                        opacity: 0.7;
+                    }
+                    50% {
+                        transform: translate(${Math.random() * 50 - 25}px, ${Math.random() * 50 - 25}px) rotate(180deg);
+                        opacity: 0.2;
+                    }
+                    75% {
+                        transform: translate(${Math.random() * 50 - 25}px, ${Math.random() * 50 - 25}px) rotate(270deg);
+                        opacity: 0.7;
+                    }
+                    100% {
+                        transform: translate(0, 0) rotate(360deg);
+                        opacity: 0.2;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    </script>
+</body>
+</html>
+    
+    <script>
+        
+    </script>
+</body>
+</html>
